@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">IFoodMate</string>
+    <string name="log_in">LOG IN</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_up">Sign_Up</string>
+    <string name="dont_have_an_account">Dont have an account?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings_page">settings_page</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_edit_profile">edit_profile</string>
+    <string name="title_activity_homepage01">homepage01</string>
+    <string name="title_activity_sp_pf">sp_pf</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string-array name="cat_names">
+        <item>Punjabi</item>
+        <item>Chines</item>
+        <item>Italian</item>
+        <item>Gujarati</item>
+        <item>South Indian</item>
+        <item>North Indian</item>
+        <item>Desserts</item>
+        <item>Japanese</item>
+        <item>Chat</item>
+    </string-array>
+
+    <string-array name="Service_Providers">
+        <item>AB.Catering Service</item>
+        <item>Ashok Caterors</item>
+        <item>Alokh Food Service</item>
+        <item>Sagar catering service</item>
+        <item>Hotel Royal</item>
+        <item>Shiv sagar Caterors</item>
+        <item>Hotel Royal</item>
+        <item>Hotel Royal</item>
+        <item>Hotel Royal</item>
+        <item>Hotel Royal</item>
+        <item>Hotel Royal</item>
+        <item>Hotel Royal</item>
+    </string-array>
+
+
+</resources>
