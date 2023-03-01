@@ -25,7 +25,7 @@ import java.util.Map;
 public class signupsp extends AppCompatActivity {
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8;
  Button btn;
-    private static final String url = "http://192.168.129.166/ifoodmate/insert_service.php";
+    private static final String url = "http://192.168.170.120/ifoodmate/insert_service.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class signupsp extends AppCompatActivity {
 
                 if (confirmInput(view) == true)
                 {
-                    insertdata(tv1,tv3,tv8,tv4,tv5,tv7);
+                    insertdata(tv1,tv2,tv8,tv4,tv5,tv7);
                     Intent login = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(login);
                 }

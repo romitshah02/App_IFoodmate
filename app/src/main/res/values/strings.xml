@@ -48,6 +48,21 @@
         <item>Hotel Royal</item>
         <item>Hotel Royal</item>
     </string-array>
-
+    <string-array name="Offer_Percentage">
+        <item>10%</item>
+        <item>20%</item>
+        <item>5%</item>
+        <item>15%</item>
+        <item>11%</item>
+        <item>40%</item>
+    </string-array>
+    <string-array name="offer_description">
+        <item>Diwali Offer</item>
+        <item>Christmas Offer</item>
+        <item>holi Offer</item>
+        <item>Paytm Offer</item>
+        <item>Paypal Offer</item>
+        <item>Diwali Offer</item>
+    </string-array>
 
 </resources>

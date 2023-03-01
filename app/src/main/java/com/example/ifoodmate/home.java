@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 
 public class home extends Fragment {
-    RelativeLayout all ;
+    RelativeLayout all,offers ;
 
     ArrayList<main_recycler> cat_models = new ArrayList<>();
     int[] catimg = {R.drawable.item_image,R.drawable.chinese,R.drawable.pasta,R.drawable.gujarati,R.drawable.gujarati,R.drawable.gujarati,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream};
@@ -31,6 +31,15 @@ public class home extends Fragment {
             public void onClick(View v) {
                 Intent all_cat = new Intent(getActivity(), Categories.class);
                 startActivity(all_cat);
+            }
+        });
+
+        offers = rootView.findViewById(R.id.view_offers_main);
+        offers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), com.example.ifoodmate.offers.class);
+                startActivity(intent);
             }
         });
 

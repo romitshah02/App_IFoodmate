@@ -1,5 +1,6 @@
 package com.example.ifoodmate;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -12,12 +13,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class loginmain extends AppCompatActivity {
     Button btn;
     TextView tv,sk,sg,fg,sp;
     EditText ps;
+    private static final String url = "http://192.168.170.120/ifoodmate/logincheck.php";
 
-    private static final String url = "";
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +59,6 @@ public class loginmain extends AppCompatActivity {
                     ps.setError("Please Enter Password");
                     tv.setError("Please Enter Username");
                 }
-                else if (tv.getText().toString().equals("service") && ps.getText().toString().equals("123"))
-                {
-                    Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(getApplicationContext(),sp_profile.class);
-                    editor.putBoolean("flag",true);
-                    editor.apply();
-                    startActivity(intent);
-                }
                 else if (tv.getText().toString().equals("hello") && ps.getText().toString().equals("123"))
                 {
                     Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
@@ -62,6 +66,10 @@ public class loginmain extends AppCompatActivity {
                     editor.putBoolean("flag",true);
                     editor.apply();
                     startActivity(intent);
+                }
+                else
+                {
+                    logincheck(tv.getText().toString(),ps.getText().toString());
                 }
             }
 
@@ -92,5 +100,68 @@ public class loginmain extends AppCompatActivity {
                 startActivity(vispg);
             }
         });
+
+
+
+
     }
+    private void logincheck(String uname, String pass)
+    {
+        final String name = uname;
+        final String pwd = pass;
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            @Override
+            public void onResponse(String response) {
+                if (response.trim().equals("success"))
+                {
+                    Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(loginmain.this, homepage.class);
+                    editor.putBoolean("flag", true);
+                    editor.apply();
+                    startActivity(intent);
+                }
+                else if (response.trim().equals("sp_success"))
+                {
+                    Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(loginmain.this, sp_profile.class);
+                    editor.putBoolean("flag", true);
+                    editor.apply();
+                    startActivity(intent);
+                }
+                else if (response.trim().equals("failure"))
+                {
+                    Toast.makeText(loginmain.this, "Login failed", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    //Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> para = new HashMap<String,String>();
+                para.put("USERNAME",name);
+                para.put("us_pwd",pwd);
+                return para;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(request);
+
+    }
+
+
+
+
 }

@@ -13,7 +13,7 @@ public class sp_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sp_profile);
-        btn = findViewById(R.id.additem);
+        btn = findViewById(R.id.Manageitem);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

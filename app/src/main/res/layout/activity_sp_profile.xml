@@ -5,21 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".sp_profile"
-    android:background="@drawable/admin_page">
+    android:background="@color/white">
 
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="120dp"
-        android:layout_height="105dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042"
-        android:src="@drawable/profie"
-       />
 
     <TextView
         android:id="@+id/catering"
@@ -27,65 +14,65 @@
         android:layout_height="30dp"
         android:text="Name"
         android:textColor="@color/black"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+        app:layout_constraintVertical_bias="0.252" />
 
     <TextView
         android:id="@+id/address"
         android:layout_width="340dp"
         android:layout_height="30dp"
-        android:textColor="@color/black"
         android:text="ADDRESS"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
+        app:layout_constraintVertical_bias="0.345" />
 
     <TextView
         android:id="@+id/phone"
         android:layout_width="340dp"
         android:layout_height="30dp"
-        android:textColor="@color/black"
         android:text="PHONE NO."
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402" />
-
+        app:layout_constraintVertical_bias="0.463" />
 
     <TextView
         android:id="@+id/Email"
         android:layout_width="340dp"
         android:layout_height="30dp"
-        android:textColor="@color/black"
         android:text="EMAIL"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
+        app:layout_constraintVertical_bias="0.536" />
 
     <TextView
         android:id="@+id/gstno"
         android:layout_width="340dp"
         android:layout_height="30dp"
-        android:textColor="@color/black"
         android:text="GST NO."
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54" />
+        app:layout_constraintVertical_bias="0.621" />
 
     <Button
         android:id="@+id/orders"
@@ -96,50 +83,37 @@
         android:text="YOUR ORDERS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintVertical_bias="0.743" />
 
     <Button
-        android:id="@+id/removeitem"
+        android:id="@+id/Manage_Category"
         android:layout_width="316dp"
         android:layout_height="49dp"
         android:backgroundTint="@color/brown"
         android:fontFamily="@font/aleo"
-        android:text="REMOVE ITEMS"
+        android:text="Manage Category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849" />
+        app:layout_constraintVertical_bias="0.929" />
 
     <Button
-        android:id="@+id/additem"
+        android:id="@+id/Manageitem"
         android:layout_width="316dp"
         android:layout_height="49dp"
         android:backgroundTint="@color/brown"
         android:fontFamily="@font/aleo"
-        android:text="ADD ITEMS"
+        android:text="Manage Item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766" />
+        app:layout_constraintVertical_bias="0.834" />
 
-    <Button
-        android:id="@+id/updateitem"
-        android:layout_width="316dp"
-        android:layout_height="49dp"
-        android:backgroundTint="@color/brown"
-        android:fontFamily="@font/aleo"
-        android:text="UPDATE ITEMS"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
 </androidx.constraintlayout.widget.ConstraintLayout>
