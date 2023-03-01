@@ -12,7 +12,7 @@
         android:id="@+id/label"
         android:layout_width="290dp"
         android:layout_height="62dp"
-        android:text="Add items"
+        android:text="Add Category"
         android:fontFamily="@font/aleo"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -25,63 +25,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.07" />
 
-    <TextView
-        android:id="@+id/descriptor"
-        android:layout_width="344dp"
-        android:layout_height="31dp"
-        android:text="other descriptors including ingredients"
-        android:textColor="@color/brown"
+
+    <EditText
+        android:id="@+id/catname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Category Name"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
         android:textAllCaps="true"
+        android:textColor="@color/brown"
+        android:textSize="20dp"
+        android:clickable="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695" />
-
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="344dp"
-        android:layout_height="31dp"
-        android:text="category"
-        android:textAllCaps="true"
-        android:textColor="@color/brown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.634" />
-
-    <TextView
-        android:id="@+id/item_name"
-        android:layout_width="344dp"
-        android:layout_height="31dp"
-        android:text="item name"
-        android:textAllCaps="true"
-        android:textColor="@color/brown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="344dp"
-        android:layout_height="31dp"
-        android:text="Price in Rs"
-        android:textAllCaps="true"
-        android:textColor="@color/brown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.564" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/category_img"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,20 +57,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.278"
        android:src="@drawable/pasta"
+        android:clickable="true"
          />
 
-    <Button
-        android:id="@+id/add_more"
-        android:layout_width="321dp"
-        android:layout_height="56dp"
-        android:backgroundTint="#361903"
-        android:text="add more"
-        app:iconTint="#FFD7B7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834" />
+
 
     <Button
         android:id="@+id/done"
@@ -116,6 +72,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintVertical_bias="0.756" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

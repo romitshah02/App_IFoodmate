@@ -23,19 +23,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083" />
 
-    <TextView
-        android:layout_width="374dp"
-        android:layout_height="167dp"
-        android:text="This page will have generated reports"
-        android:textColor="@color/brown"
-
-        android:textSize="45sp"
-        android:textStyle="italic"
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/all_pie"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brown"
+        android:text="All user"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.222" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

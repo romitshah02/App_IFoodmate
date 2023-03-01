@@ -34,7 +34,6 @@ public class offer_recyclerviewadaptor extends RecyclerView .Adapter<offer_recyc
     public void onBindViewHolder(@NonNull offer_recyclerviewadaptor.Myviewholder holder, int position) {
         holder.tv1.setText(offer_models.get(position).getPer());
         holder.tv2.setText(offer_models.get(position).getDet());
-
     }
 
     @Override
