@@ -1,19 +1,19 @@
 <?php
 
 require_once "connection.php";
+require_once "validate.php";
+
+$username = validate(($_POST['USERNAME']));
+$email = validate(($_POST['EMAIL']));
+$phn = validate($_POST['PHONE_NO']);
+$add = validate($_POST['add']);
+$password = validate($_POST['us_pwd']);
+$gender = validate($_POST['gen']);
+$date = date("Y-m-d");
 
 
-$username = trim($_POST['USERNAME']);
-$email = trim($_POST['EMAIL']);
-$phn = trim($_POST['PHONE_NO']);
-$add = trim($_POST['add']);
-$password = trim($_POST['us_pwd']);
-$gender = trim($_POST['gen']);
-//$uid = "001";
 
-
-
-$sql = "INSERT INTO `user_mst`(`USERNAME`, `EMAIL`, `PHONE_NO`, `ADDRESS`, `GENDER`, `USER_PASSWORD`) VALUES ('$username','$email','$phn','$add','$gender','$password')";
+$sql = "INSERT INTO `mst_user`(`USERNAME`, `EMAIL`, `PHONE_NO`, `ADDRESS`, `GENDER`, `USER_PASSWORD`,`REGISTRATION_DATE`) VALUES ('$username','$email','$phn','$add','$gender','$password','$date')";
 
 if ($conn->query($sql))
 {
