@@ -1,20 +1,34 @@
 <?php
 
 require_once "connection.php";
+require_once "validate.php";
 
-$category_id =validate($_POST['CATEGORY_ID']);
-$category_name =validate($_POST['CATEGORY_NAME']);
-$category_status =validate($_POST['CATEGORY_STATUS']);
+if (!empty($_POST['CAT_IMG']))
+{
+    $path = date("d-m-Y").'-'.time().rand(10000,100000000).'.jpg';
+    if (file_put_contents($path,
+    base64_decode($_POST['CAT_IMG'])))
+    {
+        $category_name = validate($_POST['CATEGORY_NAME']);
+        $category_status = 1;
+        $query = "INSERT INTO `mst_category`(`CATEGORY_NAME`,`CATEGORY_STATUS`,`CAT_IMG`) VALUES ('$category_name','$category_status','".$path."')";
+        if ($conn->query($query))
+        {
+            echo "success";
+        }
+        else
+        {
+            echo "failure";
+        }
+    }
+    else
+    {
+        echo "failure";
+    }
 
-$sql = "INSERT INTO `mst_category`(`CATEGORY_ID`, `CATEGORY_NAME`, `CATEGORY_STATUS`) VALUES ('$category_id','$category_name','$category_status')";
-if ($conn->query($sql))
-{
-    echo "Category entered successfully";
+
 }
-else
-{
-    echo "Error in category " . $sql . "" . mysqli_error($conn);
-}
+
 
 $conn->close();
 

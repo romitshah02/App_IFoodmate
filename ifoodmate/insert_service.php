@@ -1,6 +1,7 @@
 <?php
 
 require_once "connection.php";
+require_once "validate.php";
 
 
 $username = validate($_POST['USERNAME']);
@@ -26,3 +27,4 @@ else
 $conn->close();
 
 ?>
+

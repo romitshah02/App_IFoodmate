@@ -3,10 +3,8 @@ require_once "connection.php";
 require_once "validate.php";
 
 
-$username = $_POST['USERNAME'];
-$password = $_POST['us_pwd'];
-
-
+$username = validate($_POST['USERNAME']);
+$password = validate($_POST['us_pwd']);
 
 
 $sql = " SELECT * FROM `mst_user` WHERE `USERNAME` = '$username' AND `USER_PASSWORD` = '$password'  ";
