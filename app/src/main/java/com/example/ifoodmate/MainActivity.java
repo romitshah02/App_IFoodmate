@@ -38,11 +38,27 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
                 Boolean check =  pref.getBoolean("flag",false);
+                SharedPreferences name = getSharedPreferences("usertype",MODE_PRIVATE);
+                String type = name.getString("type","visitor");
+
+
 
                 Intent inext;
                 if (check)
                 {
-                    inext = new Intent(MainActivity.this,homepage.class);
+
+                    if (type == "user")
+                    {
+                        inext = new Intent(MainActivity.this, homepage.class);
+                    }
+                    else if (type == "provider")
+                    {
+                        inext = new Intent(MainActivity.this,sp_profile.class);
+                    }
+                    else
+                    {
+                        inext = new Intent(MainActivity.this,loginmain.class);
+                    }
                 }
                 else
                 {

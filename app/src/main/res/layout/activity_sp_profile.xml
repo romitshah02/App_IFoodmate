@@ -9,10 +9,28 @@
 
 
     <TextView
-        android:id="@+id/catering"
-        android:layout_width="340dp"
+        android:id="@+id/catername"
+        android:layout_width="match_parent"
+        android:layout_margin="40dp"
         android:layout_height="30dp"
-        android:text="Name"
+        android:clickable="false"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.299" />
+
+    <TextView
+        android:id="@+id/cataddress"
+        android:layout_width="match_parent"
+        android:layout_margin="40dp"
+        android:textStyle="bold"
+        android:layout_height="30dp"
+        android:clickable="false"
         android:textColor="@color/black"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,26 +38,16 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
-        android:id="@+id/address"
-        android:layout_width="340dp"
+        android:id="@+id/catphone"
+        android:layout_width="match_parent"
+        android:layout_margin="40dp"
         android:layout_height="30dp"
-        android:text="ADDRESS"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345" />
-
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="340dp"
-        android:layout_height="30dp"
-        android:text="PHONE NO."
+        android:clickable="false"
+        android:textSize="15dp"
+        android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,10 +57,13 @@
         app:layout_constraintVertical_bias="0.463" />
 
     <TextView
-        android:id="@+id/Email"
-        android:layout_width="340dp"
+        android:id="@+id/catEmail"
+        android:layout_width="match_parent"
+        android:layout_margin="40dp"
         android:layout_height="30dp"
-        android:text="EMAIL"
+        android:clickable="false"
+        android:textSize="15dp"
+        android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,16 +74,18 @@
 
     <TextView
         android:id="@+id/gstno"
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="GST NO."
+        android:layout_margin="40dp"
+        android:clickable="false"
         android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621" />
+        app:layout_constraintVertical_bias="0.603" />
 
     <Button
         android:id="@+id/orders"
@@ -81,6 +94,7 @@
         android:backgroundTint="@color/brown"
         android:fontFamily="@font/aleo"
         android:text="YOUR ORDERS"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -92,6 +106,7 @@
         android:id="@+id/Manage_Category"
         android:layout_width="316dp"
         android:layout_height="49dp"
+        android:textColor="@color/white"
         android:backgroundTint="@color/brown"
         android:fontFamily="@font/aleo"
         android:text="Manage Category"
@@ -109,6 +124,7 @@
         android:backgroundTint="@color/brown"
         android:fontFamily="@font/aleo"
         android:text="Manage Item"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
