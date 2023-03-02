@@ -5,37 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".report_admin"
-    android:background="@drawable/admin_page">
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REPORTS"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        tools:ignore="ExtraText"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".report_admin"
+        android:background="@drawable/backgrounsignup">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:id="@+id/all_pie"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/brown"
-        android:text="All user"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.222" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/barchart"
+
+            tools:layout_editor_absoluteX="0dp"
+            tools:ignore="InvalidId"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            />
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

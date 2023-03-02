@@ -24,7 +24,7 @@ TextView tv7;
                 tv1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent offer= new Intent(getApplicationContext(),offer_admin.class);
+                        Intent offer= new Intent(getApplicationContext(),offers.class);
                         startActivity(offer);
                     }
                 });

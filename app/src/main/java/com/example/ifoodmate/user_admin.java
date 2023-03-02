@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.DownloadManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -34,9 +35,9 @@ public class user_admin extends AppCompatActivity {
 
 
     private static final String url = "http://192.168.170.120/ifoodmate/all_users.php";
-    private ArrayList<allusermodel> users =  new ArrayList<>();
-    private RecyclerView.Adapter madapter;
-    private RecyclerView recyclerView;
+   List<allusermodel> users =  new ArrayList<allusermodel>();
+    RecyclerView.Adapter madapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +52,18 @@ public class user_admin extends AppCompatActivity {
 
     private void get_users()
     {
+        RequestQueue requestQueue = Volley.newRequestQueue(user_admin.this);
 
-        StringRequest request1 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST, url, null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONArray response) {
                 try {
-                    JSONArray array = new JSONArray(response);
-                    JSONObject object = new JSONObject();
+                    JSONArray array = response;
+
                     for (int i = 0; i < array.length(); i++) {
-                        object = array.getJSONObject(i);
-                        String user_no = object.getString("uno");
+                        JSONObject object = array.getJSONObject(i);
+                        String user_no = String.valueOf(object.getInt("uno"));
                         String username = object.getString("uname");
                         String phone_no = object.getString("pno");
 
@@ -68,53 +71,20 @@ public class user_admin extends AppCompatActivity {
                         users.add(user);
                     }
                 } catch (Exception e) {
-
-                    Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
                 }
-                madapter = new useradapter(getApplicationContext(), users);
-                recyclerView.setAdapter(madapter);
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
-            }
-        });
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST,url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response)
-            {
-                try {
-                    JSONArray array = new JSONArray(response);
-                    JSONObject object = new JSONObject();
-                    for (int i = 0; i < array.length(); i++) {
-                        object = array.getJSONObject(i);
-                        String user_no = object.getString("uno");
-                        String username = object.getString("uname");
-                        String phone_no = object.getString("pno");
-
-                        allusermodel user = new allusermodel(user_no, username, phone_no);
-                        users.add(user);
-                    }
-                } catch (Exception e) {
-
-                    Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
-                }
-                madapter = new useradapter(getApplicationContext(), users);
-                recyclerView.setAdapter(madapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                madapter = new useradapter(getApplicationContext(),users);
+                recyclerView.setAdapter(madapter);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                Log.d("tag","OnErrorResponse" + error.getMessage());
             }
         });
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(request1);
-
+        requestQueue.add(request);
 
     }
 }
