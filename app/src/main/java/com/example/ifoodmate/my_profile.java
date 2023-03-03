@@ -49,8 +49,13 @@ public class my_profile extends Fragment {
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(),loginmain.class);
                     SharedPreferences pref = getContext().getSharedPreferences("login", Context.MODE_PRIVATE);
+                    SharedPreferences name = getContext().getSharedPreferences("user", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putBoolean("flag",false);
+                    SharedPreferences.Editor editor1 = name.edit();
+                    editor.putBoolean("value",false);
+                    editor1.putBoolean("uservalue",false);
+
+                    editor1.apply();
                     editor.apply();
                     startActivity(intent);
 

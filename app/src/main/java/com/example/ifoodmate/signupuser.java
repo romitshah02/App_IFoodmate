@@ -74,7 +74,6 @@ public class signupuser extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
-
             }
         }, new Response.ErrorListener() {
             @Override

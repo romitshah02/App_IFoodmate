@@ -1,6 +1,5 @@
 package com.example.ifoodmate;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,23 +13,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class loginmain extends AppCompatActivity {
     Button btn;
-    TextView tv,sk,sg,fg,sp;
+    TextView tv,sk,sg,fg;
     EditText ps;
     private static final String url = "http://192.168.170.120/ifoodmate/logincheck.php";
 
@@ -46,16 +42,14 @@ public class loginmain extends AppCompatActivity {
         btn=findViewById(R.id.login);
         ps = findViewById(R.id.Password);
 
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
+
                 if(tv.getText().toString().equals("admin") && ps.getText().toString().equals("123")){
                     Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(),admin_page.class);
-                    editor.putBoolean("flag",true);
-                    editor.apply();
                     startActivity(intent);
                 }
                 else if (tv.getText().toString().equals("") || ps.getText().toString().equals("")){
@@ -67,8 +61,9 @@ public class loginmain extends AppCompatActivity {
                 {
                     Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(),homepage.class);
-                    editor.putBoolean("flag",true);
-                    editor.apply();
+                    SharedPreferences user = getSharedPreferences("user",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = user.edit();
+                    editor.putBoolean("uservalue",true);
                     startActivity(intent);
                 }
                 else
@@ -116,22 +111,21 @@ public class loginmain extends AppCompatActivity {
 
 
 
-        JSONObject jsonObject = new JSONObject();
 
-        try {
-            jsonObject.put("USERNAME",name);
-            jsonObject.put("us_pwd",pwd);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("us_pwd",pwd);
+        params.put("USERNAME",name);
+
+
+        JSONObject jsonObject = new JSONObject(params);
+        System.out.println("logincheck" + jsonObject.toString());
 
 
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(loginmain.this);
-        JsonObjectRequest request1 = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+        JsonObjectRequest request1 = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try
@@ -140,13 +134,18 @@ public class loginmain extends AppCompatActivity {
                     String value = object.getString("value");
 
                      //sharedpreferences for storing user data when logged in
-                    SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
-                    SharedPreferences preft = getSharedPreferences("usertype",MODE_PRIVATE);
+
+                    //SharedPreferences spname = getSharedPreferences("provider",MODE_PRIVATE);
+                    SharedPreferences login = getSharedPreferences("login",MODE_PRIVATE);
+                    SharedPreferences name = getSharedPreferences("user",MODE_PRIVATE);
                     SharedPreferences uid = getSharedPreferences("userid",MODE_PRIVATE);
-                    //sharedpref editor for setting the pref
+
+
+                    //sharedpref editor for setting the value
+                    //SharedPreferences.Editor editor = spname.edit();
                     SharedPreferences.Editor userid = uid.edit();
-                    SharedPreferences.Editor editor = pref.edit();
-                    SharedPreferences.Editor usertype = preft.edit();
+                    SharedPreferences.Editor check = login.edit();
+                    SharedPreferences.Editor usertype = name.edit();
 
 
                     if (value.equals("success"))
@@ -154,12 +153,14 @@ public class loginmain extends AppCompatActivity {
                         String user_id = object.getString("uid");
                             Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(loginmain.this, homepage.class);
-                            editor.putBoolean("flag", true);
-                            usertype.putString("type","user");
-                            userid.putInt("uid",Integer.parseInt(user_id));
+
+                            usertype.putBoolean("uservalue",true);
+                            userid.putInt("uid", Integer.parseInt(user_id));
+                            check.putBoolean("value",true);
                             usertype.apply();
                             userid.apply();
-                            editor.apply();
+                            check.apply();
+
                             startActivity(intent);
                     }
                     else if (value.equals("sp_success"))
@@ -167,23 +168,29 @@ public class loginmain extends AppCompatActivity {
                         String user_id = object.getString("uid");
                         Toast.makeText(loginmain.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(loginmain.this, sp_profile.class);
-                        editor.putBoolean("flag", true);
-                        usertype.putString("type","provider");
+
+                        usertype.putBoolean("uservalue",false);
+                        //editor.putBoolean("providervalue", true);
+                        check.putBoolean("value",true);
                         userid.putInt("uid",Integer.parseInt(user_id));
-                        usertype.apply();
+
+                        check.apply();
                         userid.apply();
-                        editor.apply();
-                        editor.apply();
+                        //editor.apply();
+
+
                         startActivity(intent);
 
                     } else if (value.equals("failure")) {
                         Toast.makeText(getApplicationContext(),"No Such User",Toast.LENGTH_LONG).show();
 
+
                     } else
                     {
                         Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
+
                     }
-                    Log.d("ifoodres","The response is " + response.toString());
+
 
                 }
                 catch (Exception e)

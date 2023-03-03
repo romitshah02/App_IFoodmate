@@ -36,34 +36,31 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                SharedPreferences pref = getSharedPreferences("login",MODE_PRIVATE);
-                Boolean check =  pref.getBoolean("flag",false);
-                SharedPreferences name = getSharedPreferences("usertype",MODE_PRIVATE);
-                String type = name.getString("type","visitor");
+                SharedPreferences login = getSharedPreferences("login",MODE_PRIVATE);
+                Boolean check = login.getBoolean("value",false);
 
+                SharedPreferences name = getSharedPreferences("user",MODE_PRIVATE);
+                Boolean type = name.getBoolean("uservalue",false);
 
+                //SharedPreferences spname = getSharedPreferences("provider",MODE_PRIVATE);
+                //Boolean provider = spname.getBoolean("providervalue",false);
 
                 Intent inext;
-                if (check)
+                if(check)
                 {
-
-                    if (type == "user")
+                    if (type)
                     {
                         inext = new Intent(MainActivity.this, homepage.class);
                     }
-                    else if (type == "provider")
-                    {
-                        inext = new Intent(MainActivity.this,sp_profile.class);
-                    }
                     else
                     {
-                        inext = new Intent(MainActivity.this,loginmain.class);
+                        inext = new Intent(MainActivity.this, sp_profile.class);
                     }
                 }
                 else
-                {
-                    inext = new Intent(MainActivity.this,loginmain.class);
-                }
+                    {
+                        inext = new Intent(MainActivity.this,loginmain.class);
+                    }
                 startActivity(inext);
             }
         },1000);

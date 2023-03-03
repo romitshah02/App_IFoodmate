@@ -1,5 +1,6 @@
 package com.example.ifoodmate;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class sp_profile extends AppCompatActivity {
-  Button btn;
+  Button btn,logout;
   TextView name,add,phn,email,gst;
     SharedPreferences sharedPreferences;
     private static final String url = "http://192.168.170.120/ifoodmate/sp_details.php";
@@ -37,6 +39,26 @@ public class sp_profile extends AppCompatActivity {
         btn = findViewById(R.id.Manage_Category);
 
         sharedPreferences = getSharedPreferences("",MODE_PRIVATE);
+
+        logout = findViewById(R.id.logout_sp);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),loginmain.class);
+                SharedPreferences pref = getSharedPreferences("login", Context.MODE_PRIVATE);
+                SharedPreferences name = getSharedPreferences("provider", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                SharedPreferences.Editor editor1 = name.edit();
+                editor.putBoolean("value",false);
+                editor1.putBoolean("uservalue",false);
+
+
+                editor1.apply();
+                editor.apply();
+                startActivity(intent);
+            }
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,26 +75,40 @@ public class sp_profile extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(sp_profile.this);
         SharedPreferences preferences = getSharedPreferences("userid",MODE_PRIVATE);
-        int id = preferences.getInt("userid",1010);
+        int id = preferences.getInt("uid",001);
         Map<String,String> para = new HashMap<String,String>();
         para.put("uid", String.valueOf(id));
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,new  JSONObject(para), new Response.Listener<JSONObject>() {
+        JSONObject object = new JSONObject(para);
+
+        System.out.println("useridshow"+object.toString());
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,object, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response)
             {
                 try {
                         JSONObject object = response;
-                    name = findViewById(R.id.catername);
-                    add = findViewById(R.id.cataddress);
-                    phn = findViewById(R.id.catphone);
-                    email = findViewById(R.id.catEmail);
-                    gst = findViewById(R.id.gstno);
-                        name.setText(object.getString("name"));
-                        add.setText(object.getString("add"));
-                        phn.setText(object.getString("pno"));
-                        email.setText(object.getString("mail"));
-                        gst.setText(object.getString("gst"));
+
+                        if (response.toString().equals("failure"))
+                        {
+                            Toast.makeText(sp_profile.this,"Failed to login",Toast.LENGTH_LONG);
+                            Intent intent = new Intent(sp_profile.this,loginmain.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            name = findViewById(R.id.catername);
+                            add = findViewById(R.id.cataddress);
+                            phn = findViewById(R.id.catphone);
+                            email = findViewById(R.id.catEmail);
+                            gst = findViewById(R.id.gstno);
+                            name.setText(object.getString("name"));
+                            add.setText(object.getString("add"));
+                            phn.setText(object.getString("pno"));
+                            email.setText(object.getString("mail"));
+                            gst.setText(object.getString("gst"));
+                        }
                 }
                 catch (Exception e)
                 {
