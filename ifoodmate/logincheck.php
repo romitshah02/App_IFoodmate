@@ -1,12 +1,14 @@
 <?php
 require_once "connection.php";
-require_once "validate.php";
 
 
-//$username = json_decode($_POST['USERNAME']);
-//$password = json_decode($_POST['us_pwd']);
-$username = 'Alok15';
-$password = 'alok15';
+
+$incoming = file_get_contents("php://input");
+$data = json_decode($incoming,TRUE);
+$username = ($data['USERNAME']);
+$password = ($data['us_pwd']);
+echo $username . $password;
+
 
 $sql = " SELECT `USER_ID` FROM `mst_user` WHERE `USERNAME` = '$username' AND `USER_PASSWORD` = '$password'  ";
 $sql2 = "SELECT `SERVICE_PROVIDER_ID` FROM `mst_provider` WHERE `SERVICE_PROVIDER_NAME` = '$username' AND `SERVICE_PROVIDER_PASSWORD` = '$password' ";
