@@ -4,11 +4,12 @@ require_once "connection.php";
 
 
 $incoming = file_get_contents("php://input");
+//echo $incoming;
+//$incoming = '{"us_pwd":"1234","USERNAME":"romit"}';
+
 $data = json_decode($incoming,TRUE);
 $username = ($data['USERNAME']);
 $password = ($data['us_pwd']);
-echo $username . $password;
-
 
 $sql = " SELECT `USER_ID` FROM `mst_user` WHERE `USERNAME` = '$username' AND `USER_PASSWORD` = '$password'  ";
 $sql2 = "SELECT `SERVICE_PROVIDER_ID` FROM `mst_provider` WHERE `SERVICE_PROVIDER_NAME` = '$username' AND `SERVICE_PROVIDER_PASSWORD` = '$password' ";
