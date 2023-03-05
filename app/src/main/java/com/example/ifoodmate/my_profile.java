@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class my_profile extends Fragment {
-    TextView tv1,tv3;
+    TextView tv1,tv2,tv3;
     Button logout;
     @Nullable
     @Override
@@ -40,6 +40,16 @@ public class my_profile extends Fragment {
                 public void onClick(View v) {
                     Intent ord = new Intent(getActivity(), aboutus_admin.class);
                     startActivity(ord);
+                }
+            });
+
+            tv2 = rootView.findViewById(R.id.password_change);
+
+            tv2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(),changepwd_admin.class);
+                    startActivity(intent);
                 }
             });
 

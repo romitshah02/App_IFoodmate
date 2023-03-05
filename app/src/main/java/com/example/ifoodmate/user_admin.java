@@ -66,7 +66,6 @@ public class user_admin extends AppCompatActivity {
                         String user_no = String.valueOf(object.getInt("uno"));
                         String username = object.getString("uname");
                         String phone_no = object.getString("pno");
-
                         allusermodel user = new allusermodel(user_no, username, phone_no);
                         users.add(user);
                     }

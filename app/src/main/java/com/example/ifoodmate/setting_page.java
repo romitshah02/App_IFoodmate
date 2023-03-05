@@ -28,8 +28,8 @@ public class setting_page extends AppCompatActivity {
     TextView name,add,phn,email;
 
 
-    private static final String url = "http://192.168.170.120/ifoodmate/user_details.php";
-    private static final String url2 = "http://192.168.170.120/ifoodmate/update_user.php";
+    private static final String url = "http://192.168.174.249/ifoodmate/user_details.php";
+    private static final String url2 = "http://192.168.174.249/ifoodmate/update_user.php";
 
 
     @Override
@@ -50,10 +50,10 @@ public class setting_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final String username = name.toString();
-                final String address = add.toString();
-                final String phoneno = phn.toString();
-                final String mail = email.toString();
+                final String username = name.getText().toString();
+                final String address = add.getText().toString();
+                final String phoneno = phn.getText().toString();
+                final String mail = email.getText().toString();
 
 
                 RequestQueue requestQueue = Volley.newRequestQueue(setting_page.this);
@@ -88,6 +88,7 @@ public class setting_page extends AppCompatActivity {
                                 add.setText(object.getString("add"));
                                 phn.setText(object.getString("pno"));
                                 email.setText(object.getString("mail"));
+                                Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_LONG).show();
 
                             }
                         }

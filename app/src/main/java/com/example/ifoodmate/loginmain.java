@@ -28,7 +28,7 @@ public class loginmain extends AppCompatActivity {
     Button btn;
     TextView tv,sk,sg,fg;
     EditText ps;
-    private static final String url = "http://192.168.170.120/ifoodmate/logincheck.php";
+    private static final String url = "http://192.168.174.249/ifoodmate/logincheck.php";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -140,6 +140,7 @@ public class loginmain extends AppCompatActivity {
                     SharedPreferences name = getSharedPreferences("user",MODE_PRIVATE);
                     SharedPreferences uid = getSharedPreferences("userid",MODE_PRIVATE);
 
+                    System.out.println("useroutput" + value);
 
                     //sharedpref editor for setting the value
                     //SharedPreferences.Editor editor = spname.edit();

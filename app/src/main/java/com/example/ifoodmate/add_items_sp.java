@@ -50,7 +50,7 @@ public class add_items_sp extends AppCompatActivity {
     private Bitmap bitmap;
 
 
-    private static final String url = "http://192.168.170.120/ifoodmate/insert_category.php?add=333";
+    private static final String url = "http://192.168.174.249/ifoodmate/insert_category.php?add=333";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -26,7 +26,7 @@ import java.util.Map;
 public class signupuser extends AppCompatActivity {
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8;
     Button btn;
-    private static final String url = "http://192.168.170.120/ifoodmate/insert_user.php";
+    private static final String url = "http://192.168.174.249/ifoodmate/insert_user.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class signupuser extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(signupuser.this, "Please Check All the details", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(signupuser.this, "Please Check All the details", Toast.LENGTH_LONG).show();
                 }
             }
         });
