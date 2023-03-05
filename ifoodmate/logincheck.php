@@ -7,6 +7,7 @@ $incoming = file_get_contents("php://input");
 $data = json_decode($incoming,TRUE);
 $username = ($data['USERNAME']);
 $password = ($data['us_pwd']);
+echo $username . $password;
 
 
 $sql = " SELECT `USER_ID` FROM `mst_user` WHERE `USERNAME` = '$username' AND `USER_PASSWORD` = '$password'  ";
