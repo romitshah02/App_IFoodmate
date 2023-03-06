@@ -17,13 +17,13 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caterors);
         RecyclerView recyclerView = findViewById(R.id.r_caterors);
-        setupcatmodels();
+       // setupcatmodels();
         Cat_recyclerviewadapter adapter = new Cat_recyclerviewadapter(this,cat_models,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void setupcatmodels(){
+  private void setupcatmodels(){
         String[] catnames = getResources().getStringArray(R.array.Service_Providers);
         String cat_rest = "Available Items :>";
 

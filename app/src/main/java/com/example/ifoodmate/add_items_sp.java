@@ -112,6 +112,7 @@ public class add_items_sp extends AppCompatActivity {
         final String catname = tv1.getText().toString();
         final String img = base64img;
 
+
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -121,6 +122,7 @@ public class add_items_sp extends AppCompatActivity {
                 }
                 else
                 {
+                    System.out.println("categoryresponse" + response);
                     Toast.makeText(getApplicationContext(), "Failed to add Category", Toast.LENGTH_LONG).show();
                 }
             }

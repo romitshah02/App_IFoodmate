@@ -34,7 +34,7 @@ import java.util.Map;
 public class user_admin extends AppCompatActivity {
 
 
-    private static final String url = "http://192.168.170.120/ifoodmate/all_users.php";
+    private static final String url = "http://192.168.174.249/ifoodmate/all_users.php";
    List<allusermodel> users =  new ArrayList<allusermodel>();
     RecyclerView.Adapter madapter;
     RecyclerView recyclerView;
