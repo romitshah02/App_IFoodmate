@@ -28,10 +28,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class sp_profile extends AppCompatActivity {
-  Button btn,logout;
+  Button btn,logout,update;
   TextView name,add,phn,email,gst;
     SharedPreferences sharedPreferences;
-    private static final String url = "http://192.168.174.174/ifoodmate/sp_details.php";
+    private static final String url = "http://192.168.174.249/ifoodmate/sp_details.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,15 @@ public class sp_profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),add_items_sp.class);
+                startActivity(intent);
+            }
+        });
+
+        update = findViewById(R.id.Update_sp_profile);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),update_sp_profile.class);
                 startActivity(intent);
             }
         });

@@ -25,6 +25,15 @@
         <activity
             android:name=".loginmain"
             android:exported="false" />
+
+        <activity
+            android:name=".update_sp_profile"
+            android:exported="false" />
+
+        <activity
+            android:name=".sp_change_password"
+            android:exported="false" />
+
         <activity
             android:name=".Categories"
             android:exported="false">

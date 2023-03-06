@@ -3,7 +3,6 @@ package com.example.ifoodmate;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.VoiceInteractor;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,22 +25,22 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class changepwd_admin extends AppCompatActivity {
-
+public class sp_change_password extends AppCompatActivity {
 
     TextView tv1,tv2,tv3;
     Button btn;
 
-    private static final String url = "http://192.168.174.249/ifoodmate/update_user_pwd.php";
+    private static final String url = "http://192.168.174.249/ifoodmate/update_sp_pwd.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_changepwd_admin);
+        setContentView(R.layout.activity_sp_change_password);
 
-        tv1 = findViewById(R.id.old_password);
-        tv2 = findViewById(R.id.new_password);
-        tv3 = findViewById(R.id.confirm_new_password);
-        btn = findViewById(R.id.change_pwd_btn);
+        tv1 = findViewById(R.id.old_sp_password);
+        tv2 = findViewById(R.id.new_sp_password);
+        tv3 = findViewById(R.id.confirm_new_sp_password);
+        btn = findViewById(R.id.change_sp_password);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,16 +53,17 @@ public class changepwd_admin extends AppCompatActivity {
                     int id = preferences.getInt("uid",001);
                     final String old =  tv1.getText().toString();
                     final String new_pwd = tv2.getText().toString();
-                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                    RequestQueue requestQueue = Volley.newRequestQueue(sp_change_password.this);
 
 
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            System.out.println("sppassword" + response);
                             if (response.trim().equals("success"))
                             {
                                 Toast.makeText(getApplicationContext(),"updated",Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(getApplicationContext(),my_profile.class);
+                                Intent intent = new Intent(getApplicationContext(),sp_profile.class);
                                 startActivity(intent);
                             }
                             else
@@ -94,10 +94,11 @@ public class changepwd_admin extends AppCompatActivity {
 
                     requestQueue.add(stringRequest);
 
+
                 }
                 else
                 {
-                    Toast.makeText(changepwd_admin.this, "Please Check All the details", Toast.LENGTH_LONG).show();
+                    Toast.makeText(sp_change_password.this, "Please Check All the details", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -140,4 +141,5 @@ public class changepwd_admin extends AppCompatActivity {
             return true;
         }
     }
+
 }

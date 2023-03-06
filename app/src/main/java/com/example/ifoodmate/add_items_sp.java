@@ -109,7 +109,7 @@ public class add_items_sp extends AppCompatActivity {
     }
 
     private void insertcat(TextView tv1, String base64img) {
-        final String catname = String.valueOf(tv1);
+        final String catname = tv1.getText().toString();
         final String img = base64img;
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
