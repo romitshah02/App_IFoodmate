@@ -2,9 +2,7 @@
 
 require_once "connection.php";
 
-$incoming = file_get_contents("php://input");
-//$incoming = '{"uid":"6","pwd":"1234","new_pwd":"hello123"}';
-$data = json_decode($incoming,TRUE);
+
 $id = ($data['uid']);
 $password = ($data['pwd']);
 $new_password = ($data['new_pwd']);
@@ -12,7 +10,7 @@ $new_password = ($data['new_pwd']);
 
 if ($id == 001)
 {
-    $temp = "failure";
+ echo "failure";
 }
 else
 {
@@ -27,16 +25,16 @@ else
 
         if (!empty($result2))
         {
-            $temp =  "success";
+            echo "success";
         }
 
     }
     else
     {
-        $temp =  "failure";
+        echo  "failure";
     }
 
-    echo json_encode($temp);
+
     
 }
 
