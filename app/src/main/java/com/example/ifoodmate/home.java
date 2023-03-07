@@ -30,7 +30,7 @@ public class home extends Fragment {
 
     ArrayList<main_recycler> cat_models = new ArrayList<>();
 
-    private static final String url = "http://192.168.174.249/ifoodmate/all_sp.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/all_sp.php";
 
     int[] catimg = {R.drawable.item_image,R.drawable.chinese,R.drawable.pasta,R.drawable.gujarati,R.drawable.gujarati,R.drawable.gujarati,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream};
     //@Nullable

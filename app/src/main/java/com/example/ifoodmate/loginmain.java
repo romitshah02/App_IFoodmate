@@ -28,8 +28,8 @@ public class loginmain extends AppCompatActivity {
     Button btn;
     TextView tv,sk,sg,fg;
     EditText ps;
-    private static final String url = "http://192.168.174.249/ifoodmate/logincheck.php";
-
+    //private static final String url = "http://ifoodmate.great-site.net/ifoodmate/logincheck.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/logincheck.php";
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -203,6 +203,7 @@ public class loginmain extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                System.out.println("eroorresponsee" + error.toString());
             }
         }
         );

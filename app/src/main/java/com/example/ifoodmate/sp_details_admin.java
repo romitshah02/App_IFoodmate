@@ -24,7 +24,7 @@ public class sp_details_admin extends AppCompatActivity {
     List<allusermodel> users =  new ArrayList<allusermodel>();
     RecyclerView.Adapter madapter;
     RecyclerView recyclerView;
-    private static final String url = "http://192.168.174.249/ifoodmate/all_sp.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/all_sp.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

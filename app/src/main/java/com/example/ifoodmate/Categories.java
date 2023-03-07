@@ -22,7 +22,8 @@ import java.util.ArrayList;
 
 public class Categories extends AppCompatActivity implements Recyclerviewinterface1{
     ArrayList<recyclercat> cat_models = new ArrayList<>();
-    private static final String url = "http://192.168.174.249/ifoodmate/all_categories.php";
+
+    private static final String url = "http://192.168.204.183/ifoodmate/all_categories.php";
     int[] catimg = {R.drawable.item_image,R.drawable.chinese,R.drawable.pasta,R.drawable.gujarati,R.drawable.gujarati,R.drawable.gujarati,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream};
 
     @Override
@@ -58,9 +59,9 @@ public class Categories extends AppCompatActivity implements Recyclerviewinterfa
                     {
                         JSONObject object = array.getJSONObject(i);
                         String catname = object.getString("name");
-                        String img = "192.168.174.249/ifoodmate/" + object.getString("img");
-                        int img_value = Integer.parseInt(img);
-                        recyclercat cat = new recyclercat(catname,cat_rest,img_value);
+                        String img =  object.getString("img");
+                        String urlimage =  "http://192.168.204.183/ifoodmate/" + img;
+                        recyclercat cat = new recyclercat(catname,cat_rest,urlimage);
                         cat_models.add(cat);
                     }
                                 RecyclerView recyclerView = findViewById(R.id.r_categories);
@@ -88,6 +89,8 @@ public class Categories extends AppCompatActivity implements Recyclerviewinterfa
     @Override
     public void onCatClick(int pos) {
         Intent intent = new Intent(getApplicationContext(),Caterors.class);
+        intent.putExtra("catname",cat_models.get(pos).cat_name);
+
         startActivity(intent);
     }
 }

@@ -10,17 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class Cat_recyclerviewadapter extends RecyclerView.Adapter<Cat_recyclerviewadapter.Myviewholder> {
-   // private final Recyclerviewinterface1 recyclerviewinterface;
+    private final Recyclerviewinterface1 recyclerviewinterface;
     Context context;
     ArrayList<recyclercat> cat_models;
 
     public Cat_recyclerviewadapter(Context context, ArrayList<recyclercat> cat_models,Recyclerviewinterface1 recyclerviewinterface) {
         this.context = context;
         this.cat_models = cat_models;
-        //this.recyclerviewinterface = recyclerviewinterface;
+        this.recyclerviewinterface = recyclerviewinterface;
     }
 
 
@@ -30,8 +32,8 @@ public class Cat_recyclerviewadapter extends RecyclerView.Adapter<Cat_recyclervi
         //this is were you inflate the layout
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recyclerview_row , parent,false);
-        //return new Myviewholder(view , recyclerviewinterface);
-        return new Myviewholder(view);
+        return new Myviewholder(view , recyclerviewinterface);
+        //return new Myviewholder(view);
     }
 
     @Override
@@ -39,7 +41,8 @@ public class Cat_recyclerviewadapter extends RecyclerView.Adapter<Cat_recyclervi
         //assigning values to the views in the recycler view
         holder.tv1.setText(cat_models.get(position).getCat_name());
         holder.tv2.setText(cat_models.get(position).getCat_rest());
-        holder.img.setImageResource(cat_models.get(position).getImageid());
+        Glide.with(context).load(cat_models.get(position).getImageid()).into(holder.img);
+
     }
 
     @Override
@@ -52,14 +55,14 @@ public class Cat_recyclerviewadapter extends RecyclerView.Adapter<Cat_recyclervi
     {
         ImageView img;
         TextView tv1,tv2;
-        public Myviewholder(@NonNull View itemView) {
+        public Myviewholder(@NonNull View itemView, Recyclerviewinterface1 recyclerviewinterface) {
             super(itemView);
             img = itemView.findViewById(R.id.imageView3);
             tv1 = itemView.findViewById(R.id.textView8);
             tv2 = itemView.findViewById(R.id.textView9);
 
 
-           /* itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (recyclerviewinterface != null)
@@ -72,7 +75,7 @@ public class Cat_recyclerviewadapter extends RecyclerView.Adapter<Cat_recyclervi
                         }
                     }
                 }
-            });*/
+            });
         }
     }
 }

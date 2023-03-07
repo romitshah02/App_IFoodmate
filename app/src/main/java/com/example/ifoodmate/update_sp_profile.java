@@ -25,8 +25,8 @@ import java.util.Map;
 public class update_sp_profile extends AppCompatActivity {
 Button btn,btn2;
 
- private static final String url = "http://192.168.174.249/ifoodmate/update_sp_details.php";
-    private static final String url2 = "http://192.168.174.249/ifoodmate/sp_details.php";
+ private static final String url = "http://192.168.204.183/ifoodmate/update_sp_details.php";
+    private static final String url2 = "http://192.168.204.183/ifoodmate/sp_details.php";
 TextView name,add,phn,email,new_gst;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

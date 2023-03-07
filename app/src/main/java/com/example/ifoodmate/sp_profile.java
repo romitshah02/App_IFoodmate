@@ -31,7 +31,7 @@ public class sp_profile extends AppCompatActivity {
   Button btn,logout,update;
   TextView name,add,phn,email,gst;
     SharedPreferences sharedPreferences;
-    private static final String url = "http://192.168.174.249/ifoodmate/sp_details.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/sp_details.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

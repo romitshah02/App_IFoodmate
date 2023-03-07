@@ -25,7 +25,7 @@ import java.util.Map;
 public class signupsp extends AppCompatActivity {
     TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7,tv8;
  Button btn;
-    private static final String url = "http://192.168.174.249/ifoodmate/insert_service.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/insert_service.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

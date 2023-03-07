@@ -32,7 +32,7 @@ public class changepwd_admin extends AppCompatActivity {
     TextView tv1,tv2,tv3;
     Button btn;
 
-    private static final String url = "http://192.168.174.249/ifoodmate/update_user_pwd.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/update_user_pwd.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

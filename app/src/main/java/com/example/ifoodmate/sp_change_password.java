@@ -30,7 +30,7 @@ public class sp_change_password extends AppCompatActivity {
     TextView tv1,tv2,tv3;
     Button btn;
 
-    private static final String url = "http://192.168.174.249/ifoodmate/update_sp_pwd.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/update_sp_pwd.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

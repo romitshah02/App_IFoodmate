@@ -28,8 +28,8 @@ public class setting_page extends AppCompatActivity {
     TextView name,add,phn,email;
 
 
-    private static final String url = "http://192.168.174.249/ifoodmate/user_details.php";
-    private static final String url2 = "http://192.168.174.249/ifoodmate/update_user.php";
+    private static final String url = "http://192.168.204.183/ifoodmate/user_details.php";
+    private static final String url2 = "http://192.168.204.183/ifoodmate/update_user.php";
 
 
     @Override
