@@ -13,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -31,12 +32,14 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caterors);
-        String[] cat_name = getIntent().getStringArrayExtra("catname");
+        String cat_name = getIntent().getStringExtra("catname");
+        int catpos = getIntent().getIntExtra("catpos",001);
         setupcatmodels(cat_name);
+        System.out.println("passedcatname" + cat_name);
 
     }
 
-  private void setupcatmodels(String[] name){
+  private void setupcatmodels(String name){
         //String[] catnames = getResources().getStringArray(R.array.Service_Providers);
         String cat_rest = "Available Items ";
 
@@ -47,9 +50,16 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
 
       RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
       Map<String,String> para = new HashMap<String,String>();
-      para.put("catname",String.valueOf(name));
+      para.put("catname",name);
 
-      JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, url, null, new Response.Listener<JSONArray>() {
+        JSONObject object = new JSONObject(para);
+        JSONArray array = new JSONArray();
+        array.put(object);
+        System.out.println("passedccat_name" + array.toString());
+
+
+
+      JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, url, array, new Response.Listener<JSONArray>() {
           @Override
           public void onResponse(JSONArray response) {
               System.out.print("caterors" + response.toString());
@@ -85,6 +95,7 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
 
           }
       });
+
       requestQueue.add(jsonArrayRequest);
     }
 

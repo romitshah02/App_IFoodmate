@@ -89,7 +89,8 @@ public class Categories extends AppCompatActivity implements Recyclerviewinterfa
     @Override
     public void onCatClick(int pos) {
         Intent intent = new Intent(getApplicationContext(),Caterors.class);
-        intent.putExtra("catname",cat_models.get(pos).cat_name);
+        intent.putExtra("catname",cat_models.get(pos).getCat_name());
+        intent.putExtra("catpos",pos);
 
         startActivity(intent);
     }
