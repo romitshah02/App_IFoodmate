@@ -4,6 +4,8 @@
     android:usesCleartextTraffic="true">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -16,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IFoodMate"
         tools:targetApi="31">
+        
+        <provider
+            android:authorities="com.example.ifoodmate"
+            android:name=".Database.OrderProvider"
+            android:exported="true"
+            />
         <activity
             android:name=".itemdetails"
             android:exported="false" />
