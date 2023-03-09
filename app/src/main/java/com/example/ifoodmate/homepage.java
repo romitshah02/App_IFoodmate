@@ -23,6 +23,7 @@ public class homepage extends AppCompatActivity {
         getWindow().setNavigationBarColor(getResources().getColor(R.color.white));
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_bar);
 bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedlistner);
         getSupportFragmentManager().beginTransaction().replace(R.id.bottom_layout, new home()).commit();

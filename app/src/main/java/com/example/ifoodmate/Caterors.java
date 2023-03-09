@@ -26,27 +26,24 @@ import java.util.Map;
 
 public class Caterors extends AppCompatActivity implements Recyclerviewinterface1{
     ArrayList<recyclercat> cat_models = new ArrayList<>();
-    private static final String url = "http://192.168.204.183/ifoodmate/cat_providers.php";
+    private static final String url = "http://192.168.52.96/ifoodmate/cat_providers.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caterors);
         String cat_name = getIntent().getStringExtra("catname");
-        int catpos = getIntent().getIntExtra("catpos",001);
+
         setupcatmodels(cat_name);
         System.out.println("passedcatname" + cat_name);
 
     }
 
   private void setupcatmodels(String name){
-        //String[] catnames = getResources().getStringArray(R.array.Service_Providers);
+
         String cat_rest = "Available Items ";
 
-       /* for(int i = 0 ;i < catnames.length;i++)
-        {
-            cat_models.add(new recyclercat(catnames[i],cat_rest,catimg[i]));
-        }*/
+
 
       RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
       Map<String,String> para = new HashMap<String,String>();
@@ -72,7 +69,7 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
                       JSONObject object = array.getJSONObject(i);
                       String catname = object.getString("name");
                       String img =  object.getString("img");
-                      String urlimage =  "http://192.168.204.183/ifoodmate/" + img;
+                      String urlimage =  "http://192.168.52.96/ifoodmate/" + img;
                       recyclercat cat = new recyclercat(catname,cat_rest,urlimage);
                       cat_models.add(cat);
                   }
@@ -101,7 +98,9 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
 
     @Override
     public void onCatClick(int pos) {
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(),menu_items.class);
+        intent.putExtra("catname",cat_models.get(pos).getCat_name());
+        intent.putExtra("img",cat_models.get(pos).getImageid());
         startActivity(intent);
     }
 }

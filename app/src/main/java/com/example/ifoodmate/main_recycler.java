@@ -1,10 +1,10 @@
 package com.example.ifoodmate;
 
 public class main_recycler {
-    String prov_name;
-    int img;
+    String prov_name,img;
 
-    public main_recycler(String prov_name, int img) {
+
+    public main_recycler(String prov_name, String img) {
         this.prov_name = prov_name;
         this.img = img;
     }
@@ -13,7 +13,7 @@ public class main_recycler {
         return prov_name;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 }

@@ -17,6 +17,12 @@
         android:theme="@style/Theme.IFoodMate"
         tools:targetApi="31">
         <activity
+            android:name=".itemdetails"
+            android:exported="false" />
+        <activity
+            android:name=".menu_items"
+            android:exported="false" />
+        <activity
             android:name=".All_pie"
             android:exported="false" />
         <activity
@@ -25,15 +31,12 @@
         <activity
             android:name=".loginmain"
             android:exported="false" />
-
         <activity
             android:name=".update_sp_profile"
             android:exported="false" />
-
         <activity
             android:name=".sp_change_password"
             android:exported="false" />
-
         <activity
             android:name=".Categories"
             android:exported="false">

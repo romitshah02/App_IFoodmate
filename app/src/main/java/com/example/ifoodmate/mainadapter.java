@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class mainadapter extends RecyclerView.Adapter<mainadapter.Myviewholder> {
@@ -35,7 +37,7 @@ public class mainadapter extends RecyclerView.Adapter<mainadapter.Myviewholder> 
     @Override
     public void onBindViewHolder(@NonNull Myviewholder holder, int position) {
         holder.tv1.setText(cat_models.get(position).getProv_name());
-        holder.img.setImageResource(cat_models.get(position).getImg());
+        Glide.with(context).load(cat_models.get(position).getImg()).into(holder.img);
     }
 
     @Override
