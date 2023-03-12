@@ -20,10 +20,13 @@ public class mainadapter extends RecyclerView.Adapter<mainadapter.Myviewholder> 
     Context context;
     ArrayList<main_recycler> cat_models;
 
-    public mainadapter(Context context, ArrayList<main_recycler> cat_models) {
+    private final Recyclerviewinterface1 recyclerviewinterface;
+
+    public mainadapter(Context context, ArrayList<main_recycler> cat_models,Recyclerviewinterface1 recyclerviewinterface) {
 
         this.context = context;
         this.cat_models = cat_models;
+        this.recyclerviewinterface = recyclerviewinterface;
     }
 
     @NonNull
@@ -31,7 +34,7 @@ public class mainadapter extends RecyclerView.Adapter<mainadapter.Myviewholder> 
     public Myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.itemrecycler, parent,false);
-        return new Myviewholder(view);
+        return new Myviewholder(view,recyclerviewinterface);
     }
 
     @Override
@@ -50,10 +53,25 @@ public class mainadapter extends RecyclerView.Adapter<mainadapter.Myviewholder> 
     {
         ImageView img;
         TextView tv1;
-        public Myviewholder(@NonNull View itemView) {
+        public Myviewholder(@NonNull View itemView,Recyclerviewinterface1 recyclerviewinterface1) {
             super(itemView);
             img = itemView.findViewById(R.id.cate_img);
             tv1 = itemView.findViewById(R.id.cateror_name);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerviewinterface1 != null)
+                    {
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION)
+                        {
+                            recyclerviewinterface1.onCatClick(pos);
+                        }
+                    }
+                }
+            });
 
         }
     }

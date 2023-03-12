@@ -1,30 +1,41 @@
 package com.example.ifoodmate;
 
 import android.app.LoaderManager;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.content.CursorLoader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ifoodmate.Database.OrderContract;
+import com.example.ifoodmate.Database.db_handler;
+import com.example.ifoodmate.model.Order;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.Currency;
+import java.util.List;
 
 
-public class my_cart extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class my_cart extends Fragment  {
 
     public cartadapter madapter;
-    public static int loader = 0;
+    db_handler db;
+    TextView del,total;
 
 @Nullable
     @Override
@@ -34,48 +45,47 @@ public class my_cart extends Fragment implements LoaderManager.LoaderCallbacks<C
             container, false);
 
 
+     db = new db_handler(getContext().getApplicationContext());
+    List<Order> orderList = db.getAllItems();
+    for(Order order : orderList)
+    {
+        System.out.println("orderlist" + order.getTotalprice().toString());
+    }
 
+    RecyclerView listView = rootView.findViewById(R.id.item_listview);
+    madapter = new cartadapter(orderList,getContext().getApplicationContext());
+    listView.setAdapter(madapter);
+    listView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext()));
 
-    TextView del = rootView.findViewById(R.id.delete);
-
+    del = rootView.findViewById(R.id.delete);
     del.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int deletethedata = getActivity().getContentResolver().delete(OrderContract.orderentry.Content_uri, null, null);
+            db.delAllItems();
+            orderList.clear();
+            madapter.notifyDataSetChanged();
+            listView.setAdapter(madapter);
+            total.setText(String.valueOf(updateprice(orderList)));
         }
     });
 
-    getActivity().getLoaderManager().initLoader(loader, null, this);
-    ListView listView = rootView.findViewById(R.id.item_listview);
-    madapter = new cartadapter(getContext().getApplicationContext(),null);
-    listView.setAdapter(madapter);
+    total = rootView.findViewById(R.id.tv_total_price);
+
+    total.setText(String.valueOf(updateprice(orderList)));
+
 
     return rootView;
     }
 
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = {OrderContract.orderentry._ID,
-                OrderContract.orderentry.COLUMN_NAME,
-                OrderContract.orderentry.COLUMN_PRICE,
-                OrderContract.orderentry.COLUMN_QUANTITY,
-    };
-        return new CursorLoader(getContext().getApplicationContext(), OrderContract.orderentry.Content_uri,
-                projection,
-                null,
-                null,
-                null);
-
-    }
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        madapter.swapCursor(data);
+    public int updateprice(List<Order> orderList)
+    {
+        int sum =0,i;
+        for(i = 0; i < orderList.size();i++)
+        {
+            sum = sum + (Integer.parseInt(orderList.get(i).getTotalprice()));
+        }
+        return sum;
     }
 
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
 
-    madapter.swapCursor(null);
-
-    }
 }

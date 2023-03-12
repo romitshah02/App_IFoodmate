@@ -29,39 +29,36 @@ public class menu_items extends AppCompatActivity implements Itemviewinterface{
     ArrayList<recyclercat> cat_models = new ArrayList<>();
     ImageView img0;
     Button btn;
-    private static final String url = "http://192.168.52.96/ifoodmate/menu_items.php";
+    private static final String url = "http://192.168.255.115/ifoodmate/menu_items.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_items);
 
         img0 = findViewById(R.id.menu_cat_img);
-
-
-
-
-
-
-
-
+        String catname = getIntent().getStringExtra("name");
         String procider_name = getIntent().getStringExtra("catname");
         String provider_img = getIntent().getStringExtra("img");
 
         Glide.with(getApplicationContext()).load(provider_img).into(img0);
-        setupcatmodels(procider_name);
+        setupcatmodels(procider_name,catname);
     }
 
-    private void setupcatmodels(String name){
+    private void setupcatmodels(String name,String cat){
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         Map<String,String> para = new HashMap<String,String>();
         para.put("catname",name);
+        para.put("name",cat);
+
+
+
 
         JSONObject object = new JSONObject(para);
         JSONArray array = new JSONArray();
         array.put(object);
-
+        System.out.println("namecateror" + array.toString());
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, url, array, new Response.Listener<JSONArray>() {
             @Override
@@ -77,7 +74,7 @@ public class menu_items extends AppCompatActivity implements Itemviewinterface{
                         String catname = object.getString("name");
                         String price = object.getString("price");
                         String img =  object.getString("img");
-                        String urlimage =  "http://192.168.52.96/ifoodmate/" + img;
+                        String urlimage =  "http://192.168.255.115/ifoodmate/item/" + img;
                         recyclercat cat = new recyclercat(catname,price,urlimage);
                         cat_models.add(cat);
                     }

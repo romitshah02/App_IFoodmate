@@ -60,13 +60,7 @@ public class sp_profile extends AppCompatActivity {
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),add_items_sp.class);
-                startActivity(intent);
-            }
-        });
+
 
         update = findViewById(R.id.Update_sp_profile);
         update.setOnClickListener(new View.OnClickListener() {

@@ -180,6 +180,8 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:elevation="8dp"
+                        android:id="@+id/punjabi_home"
+                        android:clickable="true"
                         android:background="@drawable/shape"
                         android:gravity="center">
 
@@ -214,6 +216,8 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:elevation="8dp"
+                        android:id="@+id/chinese_home"
+                        android:clickable="true"
                         android:background="@drawable/shape"
                         android:gravity="center">
 
@@ -248,6 +252,8 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:elevation="8dp"
+                        android:id="@+id/italian_home"
+                        android:clickable="true"
                         android:background="@drawable/shape"
                         android:gravity="center">
 

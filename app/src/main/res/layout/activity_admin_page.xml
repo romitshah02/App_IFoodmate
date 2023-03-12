@@ -29,126 +29,108 @@
         android:layout_width="337dp"
         android:layout_height="53dp"
         android:clickable="true"
-        android:textSize="18sp"
-        android:textColor="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="REPORTS"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.889" />
+        app:layout_constraintVertical_bias="0.727" />
 
     <TextView
         android:id="@+id/about_us1"
         android:layout_width="337dp"
         android:layout_height="53dp"
         android:clickable="true"
-        android:textSize="18sp"
-        android:textColor="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="ABOUT US"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
+        app:layout_constraintVertical_bias="0.52" />
+
 
     <TextView
         android:id="@+id/pwd"
         android:layout_width="337dp"
         android:layout_height="53dp"
         android:clickable="true"
-        android:textSize="18sp"
-        android:textColor="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="CHANGE PASSWORD"
-        android:textStyle="bold"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
+        app:layout_constraintVertical_bias="0.625" />
 
     <TextView
         android:id="@+id/feedback"
         android:layout_width="337dp"
         android:layout_height="53dp"
         android:clickable="true"
-        android:textSize="18sp"
-        android:textColor="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="FEEDBACKS"
-        android:textStyle="bold"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.598" />
-
-    <TextView
-        android:id="@+id/serviceprovider"
-        android:layout_width="337dp"
-        android:layout_height="53dp"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="SERVICE PROVIDERS"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/user"
-        android:layout_width="337dp"
-        android:layout_height="53dp"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="USERS"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintVertical_bias="0.407" />
 
     <TextView
         android:id="@+id/offer"
         android:layout_width="337dp"
         android:layout_height="53dp"
         android:clickable="true"
-
-        android:textSize="18sp"
-        android:textColor="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="OFFERS"
-        android:textStyle="bold"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.293" />
+
+    <TextView
+        android:id="@+id/Manage_Category"
+        android:layout_width="337dp"
+        android:layout_height="53dp"
+        android:text="Manage Category"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:clickable="true"
+        android:ems="10"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -161,6 +143,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.164"
         android:src="@drawable/profie" />
+
+
 
     <TextView
         android:id="@+id/label"
@@ -177,4 +161,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

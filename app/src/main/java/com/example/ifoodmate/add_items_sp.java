@@ -46,7 +46,6 @@ public class add_items_sp extends AppCompatActivity {
     TextView tv1;
     Button btn;
 
-
     private Bitmap bitmap;
 
 

@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class admin_page extends AppCompatActivity {
 TextView tv1;
-TextView tv2;
-TextView tv3;
 TextView tv4;
 TextView tv5;
 TextView tv6;
 TextView tv7;
+
+TextView addcat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,22 +28,7 @@ TextView tv7;
                         startActivity(offer);
                     }
                 });
-        tv2 = findViewById(R.id.user);
-                tv2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent user = new Intent(getApplicationContext(),user_admin.class);
-                        startActivity(user);
-                    }
-                });
-        tv3 = findViewById(R.id.serviceprovider);
-                tv3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent spdetails = new Intent(getApplicationContext(),sp_details_admin.class);
-                        startActivity(spdetails);
-                    }
-                });
+
         tv4 = findViewById(R.id.feedback);
                 tv4.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -76,5 +61,14 @@ TextView tv7;
                         startActivity(report);
                     }
                 });
+
+                addcat = findViewById(R.id.Manage_Category);
+        addcat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),add_items_sp.class);
+                startActivity(intent);
+            }
+        });
     }
 }

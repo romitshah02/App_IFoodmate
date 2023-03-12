@@ -19,30 +19,27 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Categories extends AppCompatActivity implements Recyclerviewinterface1{
     ArrayList<recyclercat> cat_models = new ArrayList<>();
 
-    private static final String url = "http://192.168.52.96/ifoodmate/all_categories.php";
-    int[] catimg = {R.drawable.item_image,R.drawable.chinese,R.drawable.pasta,R.drawable.gujarati,R.drawable.gujarati,R.drawable.gujarati,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream,R.drawable.icecream};
-
+    private static final String url = "http://192.168.255.115/ifoodmate/all_categories.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
-
         setupcatmodels();
 
     }
 
+
+
     private void setupcatmodels(){
-        String[] catnames = getResources().getStringArray(R.array.cat_names);
+
         String cat_rest = "Available Catering Services ";
 
-        /*for(int i = 0 ;i < catnames.length;i++)
-        {
-            cat_models.add(new recyclercat(catnames[i],cat_rest,catimg[i]));
-        }*/
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -60,7 +57,7 @@ public class Categories extends AppCompatActivity implements Recyclerviewinterfa
                         JSONObject object = array.getJSONObject(i);
                         String catname = object.getString("name");
                         String img =  object.getString("img");
-                        String urlimage =  "http://192.168.52.96/ifoodmate/" + img;
+                        String urlimage =  "http://192.168.255.115/ifoodmate/cat/" + img;
                         recyclercat cat = new recyclercat(catname,cat_rest,urlimage);
                         cat_models.add(cat);
                     }

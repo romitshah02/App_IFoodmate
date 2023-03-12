@@ -26,16 +26,16 @@ import java.util.Map;
 
 public class Caterors extends AppCompatActivity implements Recyclerviewinterface1{
     ArrayList<recyclercat> cat_models = new ArrayList<>();
-    private static final String url = "http://192.168.52.96/ifoodmate/cat_providers.php";
+    String name;
+    private static final String url = "http://192.168.255.115/ifoodmate/cat_providers.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caterors);
-        String cat_name = getIntent().getStringExtra("catname");
+         name = getIntent().getStringExtra("catname");
+        setupcatmodels(name);
 
-        setupcatmodels(cat_name);
-        System.out.println("passedcatname" + cat_name);
 
     }
 
@@ -69,7 +69,7 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
                       JSONObject object = array.getJSONObject(i);
                       String catname = object.getString("name");
                       String img =  object.getString("img");
-                      String urlimage =  "http://192.168.52.96/ifoodmate/" + img;
+                      String urlimage =  "http://192.168.255.115/ifoodmate/providers/" + img;
                       recyclercat cat = new recyclercat(catname,cat_rest,urlimage);
                       cat_models.add(cat);
                   }
@@ -101,6 +101,7 @@ public class Caterors extends AppCompatActivity implements Recyclerviewinterface
         Intent intent = new Intent(getApplicationContext(),menu_items.class);
         intent.putExtra("catname",cat_models.get(pos).getCat_name());
         intent.putExtra("img",cat_models.get(pos).getImageid());
+        intent.putExtra("name",name);
         startActivity(intent);
     }
 }
